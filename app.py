@@ -395,17 +395,17 @@ with tab1:
                 )
 
             full_patient_df_plus_pos = generate_animation_df(
-                full_patient_df=animation_dfs_log,
+                full_entity_df=animation_dfs_log,
                 event_position_df = event_position_df,
                 entity_col_name="patient",
                 wrap_queues_at=10,
                 gap_between_entities=10,
-                gap_between_rows=25,
+                gap_between_queue_rows=25,
                 step_snapshot_max=30
                 )
 
             animated_plot = generate_animation(
-                    full_patient_df_plus_pos=full_patient_df_plus_pos,
+                    full_entity_df_plus_pos=full_patient_df_plus_pos,
                     event_position_df = event_position_df,
                     scenario=args,
                     entity_col_name="patient",
@@ -414,7 +414,7 @@ with tab1:
                     plotly_width=1600,
                     override_x_max=700,
                     override_y_max=675,
-                    icon_and_text_size=19,
+                    entity_icon_size=19,
                     display_stage_labels=False,
                     time_display_units="dhm",
                     add_background_image="https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/resources/Full%20Model%20Background%20Image%20-%20Horizontal%20Layout.drawio.png",

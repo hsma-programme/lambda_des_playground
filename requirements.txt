@@ -4,3 +4,4 @@ plotly
 simpy
 asyncio
 vidigi
+numpy
