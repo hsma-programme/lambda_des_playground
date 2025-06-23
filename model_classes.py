@@ -1144,7 +1144,7 @@ class TreatmentCentreModel:
             lambda_t = self.args.arrivals['arrival_rate'].iloc[t]
 
             # set to a large number so that at least 1 sample taken!
-            u = np.Inf
+            u = np.inf
 
             interarrival_time = 0.0
 
