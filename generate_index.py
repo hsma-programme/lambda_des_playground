@@ -19,7 +19,7 @@ app_content_escaped = app_content.replace("\\", "\\\\").replace("`", "\\`")
 # Replace the multiline string assigned to "Introduction.py"
 new_index_html = re.sub(
     r'"app\.py": `.*?`',
-    f'"app.py": `{app_content_escaped}`',
+    f'"app.py": `\n{app_content_escaped}`',
     index_html,
     flags=re.DOTALL
 )
