@@ -10,56 +10,56 @@
     <title>DES Playground</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.77.0/build/style.css"
+      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.83.0/build/style.css"
     />
   </head>
   <body>
     <div id="root"></div>
     <script type="module">
-      import * as stlite from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.76.0/build/stlite.js";
+      import * as stlite from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.83.0/build/stlite.js";
       stlite.mount(
   {
-    requirements: ["pandas", "simpy", "plotly", "numpy", "asyncio"],
+    requirements: ["pandas", "simpy", "plotly", "numpy", "asyncio", "vidigi"],
     entrypoint: "app.py",
     files: {
       "app.py": {
-        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/refs/heads/main/app.py"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/app.py"
       },
 
 "helper_functions.py": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/helper_functions.py"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/helper_functions.py"
       },
 
 "distribution_classes.py": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/distribution_classes.py"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/distribution_classes.py"
       },
 
 "model_classes.py": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/model_classes.py"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/model_classes.py"
       },
 
 "style.css": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/style.css"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/style.css"
       },
 
 "output_animation_functions.py": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/output_animation_functions.py"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/output_animation_functions.py"
       },
 
 "resources/ed_arrivals.csv": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/resources/ed_arrivals.csv"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/resources/ed_arrivals.csv"
       },
 
 ".streamlit/config.toml": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/.streamlit/config.toml"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/.streamlit/config.toml"
       },
 
 ".streamlit/secrets.toml": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/.streamlit/secrets.toml"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/.streamlit/secrets.toml"
       },
 
 "home/.streamlit/secrets.toml": {
-        url: "https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/.streamlit/secrets.toml"
+        url: "https://raw.githubusercontent.com/hsma-programme/lambda_des_playground/main/.streamlit/secrets.toml"
       }
 
     },

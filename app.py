@@ -7,7 +7,8 @@ import streamlit as st
 import numpy as np
 from helper_functions import add_logo, mermaid, center_running
 from model_classes import Scenario, multiple_replications
-from output_animation_functions import reshape_for_animations, generate_animation_df, generate_animation
+from vidigi.prep import reshape_for_animations, generate_animation_df
+from vidigi.animation import generate_animation
 
 # A Streamlit application based on the open treatment centre simulation model from Monks.T, Harper.A, Anagnoustou. A, Allen.M, Taylor.S. (2022)
 # Original Model: https://github.com/TomMonks/treatment-centre-sim/tree/main
@@ -305,6 +306,7 @@ with tab1:
                     (full_event_log['rep']==1) &
                     ((full_event_log['event_type']=='queue') | (full_event_log['event_type']=='resource_use')  | (full_event_log['event_type']=='arrival_departure'))
                 ],
+                entity_col_name="patient",
                 step_snapshot_max=30,
                 every_x_time_units=5,
                 limit_duration=60*24*5
@@ -395,6 +397,7 @@ with tab1:
             full_patient_df_plus_pos = generate_animation_df(
                 full_patient_df=animation_dfs_log,
                 event_position_df = event_position_df,
+                entity_col_name="patient",
                 wrap_queues_at=10,
                 gap_between_entities=10,
                 gap_between_rows=25,
@@ -405,6 +408,7 @@ with tab1:
                     full_patient_df_plus_pos=full_patient_df_plus_pos,
                     event_position_df = event_position_df,
                     scenario=args,
+                    entity_col_name="patient",
                     include_play_button=True,
                     plotly_height=900,
                     plotly_width=1600,
@@ -413,8 +417,6 @@ with tab1:
                     icon_and_text_size=19,
                     display_stage_labels=False,
                     time_display_units="dhm",
-                    # show_animated_clock=True,
-                    # animated_clock_coordinates = [100, 50],
                     add_background_image="https://raw.githubusercontent.com/hsma-programme/Teaching_DES_Concepts_Streamlit/main/resources/Full%20Model%20Background%20Image%20-%20Horizontal%20Layout.drawio.png",
             )
 
@@ -425,18 +427,12 @@ with tab1:
                             use_container_width=False,
                             config = {'displayModeBar': False})
 
-            # st.markdown(
-            #     f'<a href="data:text/html;base64,{base64.b64encode(animated_plot.to_html(full_html=False, include_plotlyjs="cdn").encode()).decode()}" download="plot.html">Download Plot</a>',
-            #     unsafe_allow_html=True
-            # )
-
             st.download_button(
                 label="Download Plot as HTML",
                 data=animated_plot.to_html(full_html=False, include_plotlyjs="cdn"),
                 file_name="plot.html",
                 mime="text/html"
             )
-
 
             # Uncomment if debugging animated event log
             # st.write(
