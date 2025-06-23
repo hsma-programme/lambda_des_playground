@@ -1,31 +1,33 @@
 import re
 
 # File paths
-index_file = "index_base.html"
+template_file = "template_index.html"
 app_file = "app.py"
 output_file = "index.html"
 
-# Read the current index.html
-with open(index_file, "r", encoding="utf-8") as f:
-    index_html = f.read()
+# Read files
+with open(template_file, "r", encoding="utf-8") as f:
+    template_html = f.read()
 
-# Read the content of app.py
 with open(app_file, "r", encoding="utf-8") as f:
     app_content = f.read()
 
-# Escape backslashes and backticks for use in a JS template string
+# Escape backslashes and backticks for JS template literal
 app_content_escaped = app_content.replace("\\", "\\\\").replace("`", "\\`")
 
-# Replace the multiline string assigned to "Introduction.py"
-new_index_html = re.sub(
-    r'"app\.py": `.*?`',
-    f'"app.py": `\n{app_content_escaped}`',
-    index_html,
+# Add leading newline for formatting
+replacement_code = f"`\n{app_content_escaped}`"
+
+# Replace the mount(...) argument — matching between the first and last backticks in the call
+new_html = re.sub(
+    r"mount\(\s*`.*?`\s*,",
+    f"mount({replacement_code},",
+    template_html,
     flags=re.DOTALL
 )
 
-# Write the result
+# Write the updated HTML
 with open(output_file, "w", encoding="utf-8") as f:
-    f.write(new_index_html)
+    f.write(new_html)
 
 print(f"Updated HTML written to {output_file}")

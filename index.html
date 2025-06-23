@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>DES Playground</title>
+    <title>Stlite App</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.83.0/build/style.css"
@@ -16,13 +16,8 @@
   <body>
     <div id="root"></div>
     <script type="module">
-      import * as stlite from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.83.0/build/stlite.js";
-      stlite.mount(
-  {
-    requirements: ["pandas", "simpy", "plotly", "numpy", "asyncio", "vidigi"],
-    entrypoint: "app.py",
-    files: {
-      "app.py": `
+      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.83.0/build/stlite.js";
+      mount(`
 import gc
 import asyncio
 import pandas as pd
@@ -985,10 +980,8 @@ with tab3:
 
 gc.collect()
 `,
-    },
-  },
-  document.getElementById("root")
-);
+        document.getElementById("root"),
+      );
     </script>
   </body>
 </html>
